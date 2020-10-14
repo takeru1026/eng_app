@@ -10,27 +10,41 @@
   </head>
 
   <body>
-    
-    <header>
-      <div class="p-3 mb-2 bg-dark text-white"><h1>留学支援システム</h1></div>
-        <!-- user_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド -->
-      <% if user_signed_in? %> 
-        <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
-        <!-- *_path はUserモデルを作成したときに、
-        deviseにより自動で作成されてますので、rake routesで確認できます -->
-        Logged in as <strong><%= current_user.email %></strong>.
-        <%= link_to 'プロフィール変更', edit_user_registration_path %> |
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "サインイン", new_user_registration_path %> |
-        <%= link_to "ログイン", new_user_session_path %>
-      <% end %>
-    </header>
-　<div class= "container">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-  
-    <%= yield %>
-  </div>
+    <div class="container">
+      <header>
+        <div class="p-3 mb-2 bg-dark text-white"><h1>留学支援システム</h1></div>
+          <!-- user_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド -->
+          <% if user_signed_in? %> 
+              <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
+            Logged in as <strong><%= current_user.email %></strong>.
+          <div class="text-right">
+            <div class="btn btn-secondary">
+              <%= link_to 'プロフィール変更', edit_user_registration_path, :style=>"text-decoration:none; color:white" %> 
+            </div>
+          </div>
+          <div class="text-right">
+            <div class="btn btn-secondary">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, :style=>"text-decoration:none; color:white" %>
+            </div>
+          </div>
+          <% else %>
+          <div class="text-right">
+            <div class="btn btn-secondary">
+              <%= link_to "サインイン", new_user_registration_path, :style=>"text-decoration:none; color:white" %> 
+            </div>
+          </div>
+          
+          <div class="text-right">
+            <div class="btn btn-secondary">
+              <%= link_to "ログイン", new_user_session_path, :style=>"text-decoration:none; color:white" %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </header>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,0 +1,20 @@
+<div class="container">
+  <h2>記事詳細</h2>
+  <table class="table">
+	  <thead>
+		  <tr style="border-top:2px  solid #dee2e6">
+        <th style="width:10%">プラン名</th>
+        <td class="text-center" style="border-bottom:2px  solid #dee2e6"><%= @articles.title %></td>
+      </tr> 
+      <tr>
+        <th "width:10%">プラン詳細</th>
+        <td class="text-center" style="border-bottom:2px solid #dee2e6"><%= @articles.description %></td>
+      </tr> 
+    </thead>
+  </table>
+  <div class="text-right">
+    <div class="btn btn-primary">
+      <%= link_to '記事一覧',"/articles/", :style=>"text-decoration:none; color:white" %>
+    </div>
+  </div>
+</div>
