@@ -2,6 +2,7 @@ class AbroadsController < ApplicationController
   
   before_action :authenticate_user!, only: :show
   
+  
   def index
     @user = User.all
   end
@@ -20,6 +21,7 @@ class AbroadsController < ApplicationController
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
   def edit
@@ -30,4 +32,5 @@ class AbroadsController < ApplicationController
 
   def destroy
   end
+  
 end

@@ -1,2 +1,22 @@
-<h1>Abroads#show</h1>
-<p>Find me in app/views/abroads/show.html.erb</p>
+<div class="container">
+  <div style="margin-top:60px; margin-left:50px">
+    <h2>ユーザー詳細</h2>
+  </div>
+  <table class="table" style="margin-top:100px">
+	  <thead>
+		  <tr style="border-top:2px  solid #dee2e6">
+        <th style="width:15%; font-family: HGP行書体">会社名</th>
+        <td class="text-center" style="border-bottom:2px solid #dee2e6; font-family: HGP行書体"><%= @user.name %></td>
+      </tr> 
+      <tr>
+        <th style="width:15%; font-family: HGP行書体">メールアドレス</th>
+        <td class="text-center" style="border-bottom:2px solid #dee2e6; font-family: HGP行書体"><%= @user.email %></td>
+      </tr> 
+    </thead>
+  </table>
+  <div class="text-right" style="width:50%; margin-left:555px; margin-top:30px">
+    <div class= "btn btn-primary">
+      <%= link_to '記事一覧',"/articles/", :style=>"text-decoration:none; color:white; font-family: HGP行書体" %>
+    </div>
+  </div>
+</div>

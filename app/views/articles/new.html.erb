@@ -6,6 +6,10 @@
     </div>
   </div>
   <%= form_with model: Article.new, local: true do |f| %>
+      <div class = "form-grope">
+        <%= f.label :'画像' %>
+        <%= f.file_field :image, class: 'img_field'%>
+      </div>
       <div class="form-group">
         <%= f.label :title, '投稿タイトル' %>
         <%= f.text_field :title, class: 'form-control' %>
@@ -20,7 +24,6 @@
             投稿の詳細を入力してください。
         </small>
       </div>
-
     <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
     <small id="submit-tip" class="form-text text-muted">
          投稿する前に投稿内容を見直してください!

@@ -1,0 +1,25 @@
+<div class="container">
+  <div style="margin:30px">
+    <h3>記事レビューを書く</h3>
+  </div>
+  
+
+  <div style="margin:30px">
+    <h5>記事: <%= @article.title %><br>会社名：<%= @article.user.name %></h5>
+  </div>
+  <div style="margin:30px">
+    <div id="stars" >
+      満足度<br>
+      &nbsp<i class="fas fa-star rate-good"></i>
+      <i class="fas fa-star rate-good"></i>
+      <i class="fas fa-star rate-good"></i>
+      <i class="fas fa-star rate-good"></i>
+      <i class="fas fa-star rate-good"></i>
+    </div>
+    <%= form_for([@article, Rate.new]) do |f| %>
+      <%= f.hidden_field :score ,id: "target_value"%>
+      <%= f.text_area :comment, size: "30x5"%>
+      <%= f.submit%>
+    <% end %>
+  </div>
+</div>

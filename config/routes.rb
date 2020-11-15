@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
-  resources :articles
+  resources :articles do 
+    resources :rates, only: [:new,:create, :destroy]
+  end
+  namespace :admin do
+    resources :articles
+  end
   root to: "articles#index"
   devise_for :users
-  get 'abroads/index'
-  get 'abroads/new'
-  get 'abroads/create'
-  get 'abroads/show'
-  get 'abroads/edit'
-  get 'abroads/update'
-  get 'abroads/destroy'
+  resources :abroads
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

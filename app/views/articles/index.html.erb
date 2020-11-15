@@ -1,22 +1,78 @@
 <div class="container">
-  <h1>記事一覧</h1>
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <% @articles.each do |articles| %>
-        <h5 class="card-title">
-         <p><%= articles.title %></p>
-        </h5>
-        <p class="card-text">
-         <%= articles.description %>
-        </p>
+  <h2 style="margin:40px 20px;">記事一覧</h2>
+    <%= search_form_for @q do |f| %>
+      <div class="text-right">
+        <%= f.search_field :title_cont, class: "col-md-3 ml-30%" %>
+        <%= f.submit "検索" %>
+      </div>
+    <% end %>
+    <div >
+     <%= sort_link(@q, :title, "タイトル") %>
+    </div>
+    <div class="card-body row d-flex justify-content-center" >
+      <% @articles.each do |article| %>
+        <div class="card border-dark m-4 col-md-3.5" style="width: 18rem; max-height:300px">
+          <%= image_tag article.image.to_s,class:"card-img-top", :style=>"max-height:50%" %>
+          <div class="text-left" style="margin-left:5px">
+
+            <% if article.rate_averate == 0%>
+              <td>レビューなし</td>
+            <%elsif article.rate_averate == 5%>
+              <td>
+                <i class="fas fa-star rate-good"></i>
+                <i class="fas fa-star rate-good"></i>
+                <i class="fas fa-star rate-good"></i>
+                <i class="fas fa-star rate-good"></i>
+                <i class="fas fa-star rate-good"></i>          
+              </td>
+            <%elsif article.rate_averate == 4%>
+              <td>
+                <i class="fas fa-star rate-good"></i>
+                <i class="fas fa-star rate-good"></i>
+                <i class="fas fa-star rate-good"></i>
+                <i class="fas fa-star rate-good"></i>          
+              </td>
+
+            <%elsif @articles.rate_averate == 3%>
+              <td>
+                <i class="fas fa-star rate-good"></i>
+                <i class="fas fa-star rate-good"></i>
+                <i class="fas fa-star rate-good"></i>
+              </td>
+
+            <%elsif article.rate_averate == 2%>
+              <td>
+                <i class="fas fa-star rate-good"></i>
+                <i class="fas fa-star rate-good"></i>          
+              </td>
+
+            <%elsif article.rate_averate == 1%>
+              <td>
+                <i class="fas fa-star rate-good"></i>
+              </td>
+            <%end%>
+        　</div>
+        　<div class="text-right" style="width:50%; margin:-50px 0 10px 140px ">
+            <%= link_to article.user.name, "/abroads/#{article.user_id}", :style=>"text-decoration:none; color:black; " %>
+          </div>
+          <h4 class="card-title text-center" style="margin:20px 0;" >
+            <p><%= article.title %></p>
+          </h4>
+          <div class = "text-right">
+            <%= link_to "詳細", "/articles/#{article.id}", :style=>"text-decoration:none; color:brack; " %>
+          </div>
+        </div>
       <% end %>
-      <%= link_to '詳細', "/airticles/#{@airtcle.id}" %>
     </div>
-  </div>
-  
-  <div class="text-right">
-    <div class="btn btn-primary">
-      <%= link_to "新規投稿", '/articles/new', :style=>"text-decoration:none; color:white" %>
+    <%= page_entries_info @articles %>
+    <div class="text-left">
+      <%= paginate @articles %>
     </div>
-  </div>
+  <% if current_user.company_user? && !(current_user == @user) %>
+    <div class="text-right">
+      <div class="btn btn-primary text-center">
+      　<%= link_to "新規投稿", " /articles/new", :style=>"text-decoration:none; color:white;" %>
+      </div>
+    </div>
+  <% end %>
 </div>

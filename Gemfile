@@ -65,3 +65,13 @@ gem 'devise'
 
 gem 'bootstrap', '~> 4.1', '>= 4.1.3'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+
+gem 'pry-rails'
+
+gem 'carrierwave'
+
+gem 'ransack'
+
+gem 'jp_prefecture'
+
+gem 'kaminari'
