@@ -1,0 +1,17 @@
+<div class="jumbotron"></div>
+ <div id="homeword">
+  <h1>自分の可能性を広げよう</h11>
+  <h2>自分好みの留学で一生の思い出と経験を</h2>
+</div>
+  <% if user_signed_in? %>
+  
+  <% else %>
+  <div id="invis"> 
+    <div class="logbtn">
+      <p><%= link_to 'ログイン', new_user_session_path  %></p>
+    </div>
+    <div class="newbtn">
+      <p><%= link_to '新規登録', new_user_registration_path%></p>
+    </div>
+  </div>
+<% end %>

@@ -21,7 +21,9 @@ class AbroadsController < ApplicationController
   end
 
   def show
+   
     @user = User.find(params[:id])
+    @article = @user.articles
   end
 
   def edit

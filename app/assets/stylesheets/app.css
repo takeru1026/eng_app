@@ -1,0 +1,35 @@
+#main .navbar{
+    height:60px;
+    background-color:#FFE4B5
+    
+}
+#main .navbar h4 a{
+    text-decoration:none; 
+    color:black; 
+    margin-top:10px;
+    
+}
+#main .dropdown {
+    margin-left:auto;
+}
+
+#main .dropdown-menu{
+    width:20%;
+    margin-left:-100px;
+    text-align: center;
+    background-color: transparent
+}
+#main .dropdown-menu a{
+    color:black;text:center;
+    margin:auto;
+}
+#main .logname {
+    margin-left:100px;
+}
+#main .dropdown-menu li{
+    transition: all .3s ease-in-out;
+}
+#main .dropdown-menu li:hover{
+    transform: scale(1.05);
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
+}

@@ -1,0 +1,45 @@
+/*---show----*/
+#abroadshow h2{
+    margin-top:60px;
+    margin-left:50px
+}
+#abroadshow .table{
+    margin-top:100px
+}
+#abroadshow .table tr{
+    border-top:2px solid #dee2e6
+}
+#abroadshow .table th{
+    width:15%;
+    height:auto
+}
+#abroadshow .table td{
+    border-bottom:2px solid #dee2e6;
+    text-align:center;
+}
+#abroadshow .panel-heading {
+    font-size:20px; 
+    font-weight:550; 
+    margin-left:15px;
+}
+#abroadshow .list-group{
+    margin:10px 0 10px 70px
+}
+#abroadshow li.list-group-item a{
+    color:black;
+}
+#abroadshow .good a{
+    color:black;
+}
+#abroadshow .primary .btn a{
+    text-decoration:none; 
+    color:white;
+}
+#abroadshow li.list-group-item{
+   transition: all .4s ease-in-out;
+   text-align: center;
+}
+#abroadshow li.list-group-item:hover{
+   transform: scale(1.05);
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
+}

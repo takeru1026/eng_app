@@ -5,7 +5,7 @@ class CreateArticles < ActiveRecord::Migration[5.2]
       t.string :string
       t.string :description
       t.string :text
-
+      t.string :images
       t.timestamps
     end
   end

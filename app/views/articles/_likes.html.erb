@@ -1,0 +1,34 @@
+<% if @articles.rate_averate == 0%>
+  <td>レビューなし</td>
+<%elsif @articles.rate_averate == 5%>
+  <td>
+    <i class="fas fa-star rate-good"></i>
+    <i class="fas fa-star rate-good"></i>
+    <i class="fas fa-star rate-good"></i>
+    <i class="fas fa-star rate-good"></i>
+    <i class="fas fa-star rate-good"></i>          
+  </td>
+<%elsif @articles.rate_averate == 4%>
+  <td>
+    <i class="fas fa-star rate-good"></i>
+    <i class="fas fa-star rate-good"></i>
+    <i class="fas fa-star rate-good"></i>
+    <i class="fas fa-star rate-good"></i>          
+  </td>
+<%elsif @articles.rate_averate == 3%>
+  <td>
+    <i class="fas fa-star rate-good"></i>
+    <i class="fas fa-star rate-good"></i>
+    <i class="fas fa-star rate-good"></i>
+  </td>
+
+<%elsif @articles.rate_averate == 2%>
+  <td>
+    <i class="fas fa-star rate-good"></i>
+    <i class="fas fa-star rate-good"></i>          
+  </td>
+<%elsif @articles.rate_averate == 1%>
+  <td>
+    <i class="fas fa-star rate-good"></i>
+  </td>
+<%end%>

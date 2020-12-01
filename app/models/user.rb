@@ -10,6 +10,11 @@ class User < ApplicationRecord
          
   has_many :articles
   has_many :rates
+  has_many :likes
+  
+  def liked_by?(article_id)
+    likes.where(article_id: article_id).exists?
+  end
   
   include JpPrefecture
   jp_prefecture :prefecture_code

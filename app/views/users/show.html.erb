@@ -1,0 +1,28 @@
+<div class="container">
+  <% if @like_list.present? %>
+    <h3 style="margin:30px 0">いいね一覧</h3>
+    <table class="table">
+      <thead style="margin:10px">
+		    <tr style="border-top:2px  solid #dee2e6">
+          <th class="text-center" style="width:50%">プラン名</th>
+          <th class="text-center" style="width:50%">会社名</th>
+        </tr> 
+      </thead>
+      <tbody>
+        <% @like_list.each do |article|%>
+          <tr>
+            <td class="text-center" style="border-bottom:2px  solid #dee2e6">
+              <%= link_to article.title,"/articles/#{article.id}", :style=>"color:black; " %>
+            </td>
+            <td class="text-center" style="border-bottom:2px  solid #dee2e6">
+              <%= link_to article.user.name, "/abroads/#{article.user.id}", :style=>"color:black; " %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  <div class="text-right">
+    <%= link_to 'Back', articles_path %>
+  </div>
+</div>

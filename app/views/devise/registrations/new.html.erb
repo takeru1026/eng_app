@@ -43,9 +43,7 @@
           <%= f.label :パスワード %>
         </div> 
           <% if @minimum_password_length %>
-          <div style="font-family: HGP行書体">
             <em>（<%= @minimum_password_length %> 文字以上）</em>
-          </div>
           <% end %><br />
           <%= f.password_field :password, autocomplete: "new-password" %>
       </div>
@@ -60,7 +58,7 @@
       </div>
     </div>
 
-    <div class="box-login" style="font-family: HGP行書体">
+    <div class="box-login">
       <p><%= f.submit "新規登録" %></p>
     </div>
   <% end %>

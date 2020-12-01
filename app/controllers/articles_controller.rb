@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   
-  before_action :authenticate_user!
-  before_action :if_not_company_user?, only: :new
+  before_action :authenticate_user!, only: [:new, :create, :show, :edit, :update, :destroy ]
+  before_action :if_not_company_user?, only: [:new]
   
   
   def index
@@ -57,7 +57,7 @@ class ArticlesController < ApplicationController
   
   private
   def article_params
-    params.require(:article).permit(:title, :description, :image, :remove_image).merge(user_id:current_user.id)
+    params.require(:article).permit(:title, :description, :images, :remove_image).merge(user_id:current_user.id)
   end
   def if_not_company_user?
     redirect_to root_path unless current_user.company_user?

@@ -8,7 +8,7 @@
   <%= form_with model: Article.new, local: true do |f| %>
       <div class = "form-grope">
         <%= f.label :'画像' %>
-        <%= f.file_field :image, class: 'img_field'%>
+        <%= f.file_field :images, class: 'img_field'%>
       </div>
       <div class="form-group">
         <%= f.label :title, '投稿タイトル' %>

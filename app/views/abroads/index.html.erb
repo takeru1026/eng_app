@@ -3,19 +3,19 @@
   <table class="table table-bordered border-primary table-hover table-sm posts_table">
      <thead class="thead-dark">
       <tr>
-        <th scope="col" style="width: 5%; text-aline: center; font-family: HGP行書体" class= "text-center">id</th>
-        <th scope = "col" style= "width: 25%; text-aline: center; font-family: HGP行書体" class= "text-center">名前</th>
-        <th scope= "col" style= "width: 50%; text-aline: center; font-family: HGP行書体" class= "text-center">メールアドレス</th>
-        <th scope = "col" style= "width: 25%; text-aline: center; font-family: HGP行書体" class= "text-center">登録日</th>
+        <th scope="col" style="width: 5%; text-aline: center; " class= "text-center">id</th>
+        <th scope = "col" style= "width: 25%; text-aline: center; " class= "text-center">名前</th>
+        <th scope= "col" style= "width: 50%; text-aline: center;" class= "text-center">メールアドレス</th>
+        <th scope = "col" style= "width: 25%; text-aline: center; " class= "text-center">登録日</th>
       </tr>
     </thead>
     <tbody>
       <% @user.each do |user| %>
         <tr>
-          <td class= "text-center" style= "font-family: HGP行書体"><%= user.id %></td>
-          <td class= "text-center" style= "font-family: HGP行書体"><%= user.name %></td>
-          <td class= "text-center" style= "font-family: HGP行書体"><%= user.email %></td>
-          <td class= "text-center" style= "font-family: HGP行書体"><%= user.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+          <td class= "text-center"><%= user.id %></td>
+          <td class= "text-center"><%= user.name %></td>
+          <td class= "text-center"<%= user.email %></td>
+          <td class= "text-center"><%= user.created_at.strftime("%Y-%m-%d %H:%M") %></td>
         </tr>
       <% end %>
     </tbody>

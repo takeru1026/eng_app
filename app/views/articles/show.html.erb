@@ -1,66 +1,82 @@
-<div class="container">
+<div id="artshow" class="container">
   <h2>記事詳細</h2>
-  <div class="text-right">
+  <div class="all text-right">
     <div class= "btn btn-primary">
-      <%= link_to '記事一覧',"/articles/", :style=>"text-decoration:none; color:white" %>
+      <%= link_to '記事一覧',"/articles/" %>
     </div>
   </div>
   <table class="table">
 	  <thead>
-		  <tr style="border-top:2px  solid #dee2e6">
-        <th style="width:10%">プラン名</th>
-        <td class="text-center" style="border-bottom:2px  solid #dee2e6"><%= @articles.title %></td>
+		  <tr>
+        <th>プラン名</th>
+        <td class="text-center"><%= @articles.title %></td>
       </tr> 
       <tr>
-        <th style="width:10%">プラン詳細</th>
-        <td class="text-center" style="border-bottom:2px solid #dee2e6"><%= @articles.description %></td>
+        <th>会社名</th>
+        <td class="text-center">
+          <%= link_to @articles.user.name, "/abroads/#{@articles.user_id}"%>
+        </td>
       </tr> 
       <tr>
-        <th style="width:10%" class="align-middle">画像</th>
-        <td class="text-center" style="border-bottom:2px solid #dee2e6"><%= image_tag @articles.image.to_s %></td>
+        <th>プラン詳細</th>
+        <td class="text-center"><%= @articles.description %></td>
+      </tr> 
+      <tr>
+        <th class="align-middle">画像</th>
+        <td class="text-center"><%= image_tag @articles.images.to_s %></td>
       </tr>
     </thead>
   </table>
-  <h4 style="margin:20px 0">レビュー</h1>
-  <% @comments.each do |c| %>
-    <p><%= c.user.name %></p>
-    <p>
-    <% if @articles.rate_averate == 0%>
-      レビューなし
-     <%elsif @articles.rate_averate == 5%>
-      <i class="fas fa-star rate-good"></i>
-      <i class="fas fa-star rate-good"></i>
-      <i class="fas fa-star rate-good"></i>
-      <i class="fas fa-star rate-good"></i>
-      <i class="fas fa-star rate-good"></i>          
-     <%elsif @articles.rate_averate == 4%>
-      <i class="fas fa-star rate-good"></i>
-      <i class="fas fa-star rate-good"></i>
-      <i class="fas fa-star rate-good"></i>
-      <i class="fas fa-star rate-good"></i>          
+  <div class="panel panel-default">
+    <div class="panel-heading">レビュー</div>
+      <% @comments.each do |c| %>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <p class="review">
+            <%= c.user.name %>
+            <% if @articles.rate_averate == 0%>
+              レビューなし
+            <%elsif @articles.rate_averate == 5%>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>          
+            <%elsif @articles.rate_averate == 4%>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>          
 
-     <%elsif @articles.rate_averate == 3%>
-      <i class="fas fa-star rate-good"></i>
-      <i class="fas fa-star rate-good"></i>
-      <i class="fas fa-star rate-good"></i>
-     <%elsif@articles.rate_averate == 2%>
-      <i class="fas fa-star rate-good"></i>
-      <i class="fas fa-star rate-good"></i>          
-     <%elsif @articles.rate_averate == 1%>
-      <i class="fas fa-star rate-good"></i>
-    <%end%>
-</p>
-    <p><%= c.comment %></p>
-  <% end %>
-  <div class="text-right">
+            <%elsif @articles.rate_averate == 3%>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>
+            <%elsif@articles.rate_averate == 2%>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>          
+            <%elsif @articles.rate_averate == 1%>
+              <i class="fas fa-star rate-good"></i>
+            <%end%>
+          </p>
+          <p class="comment"><%= c.comment %></p>
+          <time datetime="<%= c.created_at %>">
+  　　　　  　　　<%= time_ago_in_words(c.created_at) %> ago
+　　　　　</time>
+      </ul>
+      <% end %>
+  </div>
+  <div class="all text-right">
+    <% if user_signed_in? && @articles.user_id == current_user.id %>
+      <div class= "btn btn-primary">
+        <%= link_to '編集', "/articles/#{@articles.id}/edit/" %>
+      </div>
+      <div class= "btn btn-primary">
+        <%= link_to '削除', "/articles/#{@articles.id}", method: :delete %>
+      </div>
+    <% end %>
     <div class= "btn btn-primary">
-      <%= link_to '編集', "/articles/#{@articles.id}/edit/", :style=>"text-decoration:none; color:white" %>
-    </div>
-    <div class= "btn btn-primary">
-      <%= link_to '削除', "/articles/#{@articles.id}", method: :delete, :style=>"text-decoration:none; color:white"  %>
-    </div>
-    <div class= "btn btn-primary">
-      <%= link_to 'レビューを書く', new_article_rate_path(@articles), :style=>"text-decoration:none; color:white" %>
+      <%= link_to 'レビューを書く', new_article_rate_path(@articles) %>
     </div>
   </div>
 </div>

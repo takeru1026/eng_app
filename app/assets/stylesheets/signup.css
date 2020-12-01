@@ -19,7 +19,6 @@
 #singup h2 {
   font-weight: 400;
   font-size: 28px;
-  font-family: "HGP行書体";
   line-height: 1.2;
   margin-bottom: 10px;
   padding-bottom: 4px;
@@ -35,7 +34,6 @@
 #singup .box-email label, .box-password label {
   font-weight: 700;
   font-size: 13px;
-  font-family: "HGP行書体";
   padding-left: 2px;
   padding-bottom: 2px;
 }
@@ -76,7 +74,6 @@
 #singup .box-newusr p {
   text-align: center;
   font-size: 12px;
-  font-family: "HGP行書体";
   color: #767676;
   margin-bottom: 14px;
 }
@@ -91,7 +88,6 @@
   width: 100%;
   height: 31px;
   font-size: 13px;
-  font-family: "HGP行書体";
   color: #111;
   line-height: 31px;
   text-align: center;
@@ -104,11 +100,3 @@
   background: #e7e9ec;
 }
 
-.rate-good {
-  cursor: pointer ;
-  color: gold;
-}
-.rate-bad {
-  cursor: pointer ;
-  color: gray;
-}

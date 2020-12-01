@@ -75,3 +75,5 @@ gem 'ransack'
 gem 'jp_prefecture'
 
 gem 'kaminari'
+
+gem 'mini_magick'

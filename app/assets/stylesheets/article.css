@@ -1,0 +1,86 @@
+/*---index----*/
+#article h2{
+    margin:40px 20px;
+}
+#article .card {
+  transition: all .6s ease-in-out;
+  width: 18rem;
+  max-height:300px;
+}
+#article .card:hover{
+     transform: scale(1.05);
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.4);
+}
+#article .card-img-top{
+    max-height:50%
+}
+#article .rate{
+    margin-left:5px
+}
+#article .name{
+    width:50%;
+    margin:-50px 0 10px 140px;
+}
+#article .name a{
+  text-decoration:none; 
+  color: black;
+}
+#article h4 {
+    margin:20px 0;
+}
+#article .btn a{
+  text-decoration:none; 
+  color:white;
+  margin-left: -15px
+}
+.rate-good {
+  cursor: pointer ;
+  color: gold;
+}
+.rate-bad {
+  cursor: pointer ;
+  color: gray;
+}
+ 
+/*----show----*/
+#artshow  h2 {
+    margin-top:60px; 
+    margin-left:50px;
+}
+
+#artshow .all .btn a{
+    text-decoration:none;
+    color:white
+}
+#artshow .table tr{
+    border-top:2px solid #dee2e6
+    
+}
+#artshow .table th{
+    width:10%
+}
+#artshow .table td{
+    border-bottom:2px  solid #dee2e6;
+}
+#artshow .table td a{
+    color:black;
+    
+}
+#artshow .list-group-item .review{
+    text-align: left;
+}
+#artshow .list-group-item .comment{
+    text-align: center;
+}
+#artshow .panel-heading{
+    font-size:20px; 
+    font-weight:550;
+    margin-left:15px
+}
+#artshow .list-group{
+    margin:10px 0 10px 70px
+}
+#artshow time{
+    float:right;
+    margin-right:-75px;
+}
