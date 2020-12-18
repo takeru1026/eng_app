@@ -1,0 +1,22 @@
+<% provide(:title,"CHAT ROOM") %>
+<div id="roomindex" class="dm_list container">
+  <h1>CHAT ROOM</h1>
+  <% @rooms.each do |room| %>
+    <div class="dm_list__content">
+      <%= link_to room_path(room), class: "dm_list__content__link" do %>
+        <div class="dm_list__content__link__box">
+          <i class="fas fa-user-circle fa-2x"></i>
+          <h6 class="dm_list__content__link__box__name">
+            <%= opponent_user(room) %>
+          </h6>
+          <h4 class="dm_list__content__link__box__message">
+            <%= most_new_message_preview(room) %>
+          </h4>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <div class= "btn btn-primary">
+      <%= link_to '記事一覧',"/articles/" %>
+  </div>
+</div>

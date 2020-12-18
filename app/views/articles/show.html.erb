@@ -1,0 +1,99 @@
+<% provide(:title,"記事詳細") %>
+<div id="artshow" class="container">
+  <h2>記事詳細</h2>
+  <div class="all text-right">
+    <div class= "btn btn-primary">
+      <%= link_to '記事一覧',"/articles/" %>
+    </div>
+  </div>
+  <table class="table">
+	  <thead>
+		  <tr>
+        <th>プラン名</th>
+        <td class="text-center"><%= @articles.title %></td>
+      </tr> 
+      <tr>
+        <th>会社名</th>
+        <td class="text-center">
+          <%= link_to @articles.user.name, "/abroads/#{@articles.user_id}"%>
+        </td>
+      </tr> 
+      <tr>
+        <th>費用</th>
+        <td class="text-center"><%= @articles.price %>～</td>
+      </tr>
+      <tr>
+        <th>国</th>
+        <td class="text-center"><%= @articles.country %></td>
+      </tr>
+      <tr>
+        <th>言語</th>
+        <td class="text-center"><%= @articles.language %></td>
+      </tr>
+      <tr>
+        <th>期間</th>
+        <td class="text-center"><%= @articles.period %></td>
+      </tr>
+      <tr>
+        <th>プラン詳細</th>
+        <td class="text-center"><%= @articles.description %></td>
+      </tr> 
+      <tr>
+        <th class="align-middle">画像</th>
+        <td class="text-center"><%= image_tag @articles.images.to_s %></td>
+      </tr>
+    </thead>
+  </table>
+  <div class="panel panel-default">
+    <div class="panel-heading">レビュー</div>
+      <% @comments.each do |c| %>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <p class="review">
+            <%= c.user.name %>
+            <% if c.score == 0%>
+              レビューなし
+            <%elsif c.score == 5%>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>          
+            <%elsif c.score == 4%>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>          
+
+            <%elsif c.score == 3%>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>
+            <%elsif c.score == 2%>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>          
+            <%elsif c.score == 1%>
+              <i class="fas fa-star rate-good"></i>
+            <%end%>
+          </p>
+          <p class="comment"><%= c.comment %></p>
+          <time datetime="<%= c.created_at %>">
+  　　　　  　　　<%= time_ago_in_words(c.created_at) %>前
+　　　　　</time>
+      </ul>
+      <% end %>
+  </div>
+  <div class="all text-right">
+    <% if user_signed_in? && @articles.user.id == current_user.id %>
+      <div class= "btn btn-primary">
+        <%= link_to '編集', "/articles/#{@articles.id}/edit/" %>
+      </div>
+      <div class= "btn btn-primary">
+        <%= link_to '削除', "/articles/#{@articles.id}", method: :delete %>
+      </div>
+    <% end %>
+    <div class= "btn btn-primary">
+      <%= link_to 'レビューを書く', new_article_rate_path(@articles) %>
+    </div>
+  </div>
+</div>

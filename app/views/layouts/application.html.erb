@@ -1,36 +1,51 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>EngApp</title>
+    <title><%= yield(:title) %> | 留学支援システム</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://kit.fontawesome.com/fd343208f2.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body>
-    
-    <header>
-      <div class="p-3 mb-2 bg-dark text-white"><h1>留学支援システム</h1></div>
-        <!-- user_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド -->
-      <% if user_signed_in? %> 
-        <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
-        <!-- *_path はUserモデルを作成したときに、
-        deviseにより自動で作成されてますので、rake routesで確認できます -->
-        Logged in as <strong><%= current_user.email %></strong>.
-        <%= link_to 'プロフィール変更', edit_user_registration_path %> |
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "サインイン", new_user_registration_path %> |
-        <%= link_to "ログイン", new_user_session_path %>
-      <% end %>
-    </header>
-　<div class= "container">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-  
-    <%= yield %>
-  </div>
+    <div id="main">
+      <header>
+        <nav class="navbar navbar-expand-lg navbar-light ">
+          <h4><%= link_to '留学支援システム', root_path %> </h4>
+          <% if user_signed_in? %>
+            <div class="dropdown ">
+	            <div class="btn btn-default " type="button" data-toggle="dropdown">
+                <i class="fas fa-user-circle fa-2x "></i>
+              </div>
+              <ul class="dropdown-menu">
+	              <li role="presentation"> <a href="/abroads/<%= current_user.id %>">マイページ</a></li>
+	              <div class="dropdown-divider"></div>
+		            <li role="presentation"><%= link_to "CHAT ROOM", rooms_path %></li>
+		            <div class="dropdown-divider"></div>
+		            <li role="presentation"><%= link_to "プロフィール編集", edit_user_registration_path %></li>
+		            <div class="dropdown-divider"></div>
+		            <li role="presentation"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+		            
+	            </ul> 
+            </div>
+          <% end %>
+        </nav>
+          <!-- user_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド -->
+          <% flash.each do |message_type, message| %>
+            <%= message %>
+          <% end %>
+          <% if user_signed_in? %> 
+              <!-- current_user は現在ログインしているUserオブジェクトを返すdeviseのHelperメソッド -->
+            <div class="logname text-left">
+             <strong><%= current_user.name %></strong>のアカウントでログイン中
+            </div>
+          <% end %>
+      </header>
+    </div>
+      <%= yield %>
+      
   </body>
 </html>

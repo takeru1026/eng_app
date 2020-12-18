@@ -1,35 +1,68 @@
-<h2>新規登録</h2>
+<% provide(:title,"SignUp") %>
+<div id="singup"　class="container">
+   <div class="box">
+    <div class="box-inner">
+      <div class="text-center">
+ 　　     <h2>新規登録</h2>
+ 　　 </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
   
-  <div class="form-group">
-    <%= f.label :名前 %><br />
-    <%= f.text_field :name  %>
-  </div>
+    <div class="box-email">
+      <%= f.label :名前 %><br />
+      <%= f.text_field :name  %>
+    </div>
+　  <div class="box-email" style="margin-top:-30px">
+      <%= f.label :メールアドレス %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+    <div class="box-email">
+      <%= f.label :誕生日 %>
+      <p>
+        <%= raw sprintf(f.date_select(:birthday, use_month_numbers: true, start_year:  1960,  end_year: (Time.now.year), default:  Date.new(1989, 1, 1), date_separator: '%s'),   '年 ', '月 ') + '日' %>
+      </p>
+    </div>
+    <div class="box-email">
+      <div style="margin-left:-20px; margin-bottom:-24px">
+    　  <%= f.label :郵便番号 %><br />
+    　</div>
+      <%= f.text_field :postcode %><br />
+      <%= f.label :都道府県 %><br />
+      <%= f.text_field :prefecture_code, collection: JpPrefecture::Prefecture.all, :value_method => :name, include_blank: '都道府県' %><br>
+      <%= f.label :市区町村 %><br />
+      <%= f.text_field :address_city %><br />
+      <br />
+      <%= f.text_field :address_street %><br />
+      <%= f.label :建物名 %><br />
+      <%= f.text_field :address_building %>
+    </div>
     
-　<div class="form-group">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  
-  </div>
+    <div class="box-password">
+      <div class="a-row">
+        <div class="column-left">
+          <%= f.label :パスワード %>
+        </div> 
+          <% if @minimum_password_length %>
+            <em>（<%= @minimum_password_length %> 文字以上）</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="box-password">
+      <div class="a-row">
+        <div class="column-left">
+          <%= f.label :パスワード確認 %><br />
+        </div>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="box-login">
+      <p><%= f.submit "新規登録" %></p>
+    </div>
+  <% end %>
 
-  <div class="actions">
-    <%= f.submit "新規登録" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+</div>

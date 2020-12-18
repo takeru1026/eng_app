@@ -1,2 +1,103 @@
-<h1>Abroads#show</h1>
-<p>Find me in app/views/abroads/show.html.erb</p>
+<% provide(:title,"ユーザー詳細") %>
+<div id="abroadshow" class="container">
+  <h2>ユーザー詳細</h2>
+  <table class="table">
+	  <thead>
+    <% if @user.company_user? %>
+		  <tr>
+        <th>会社名</th>
+        <td><%= @user.name %></td>
+      </tr> 
+      <tr>
+        <th>メールアドレス</th>
+        <td><%= @user.email %></td>
+      </tr>
+      
+    <% else %>
+      <tr>
+        <th>名前</th>
+        <td><%= @user.name %></td>
+      </tr> 
+      <tr>
+        <th>メールアドレス</th>
+        <td><%= @user.email %></td>
+      </tr> 
+      <tr>
+        <th>住所</th>
+        <td><%= @user.postcode %></td>
+      </tr>
+      <tr>
+        <th></th>
+        <td><%= @user.prefecture_code %></td>
+      </tr>
+      <tr>
+        <th></th>
+        <td><%= @user.address_city %><%= @user.address_street %><%= @user.address_building %></td>
+      </tr>
+    <% end %>
+    </thead>
+  </table>
+  <% if  @user.company_user? %>
+    <div class="panel panel-default">
+      <div class="panel-heading">記事</div>
+      <% @user.articles.each do |article| %>
+        <ul class="list-group">
+          <li class="list-group-item"><%= link_to article.title, "/articles/#{article.id}" %>
+            <a href="/articles/<%= article.id %>" class="stretched-link"> </a>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+    
+  <% else %>
+    <div class="good">
+      <% if @like_list.present? %>
+        <div class="panel panel-default">
+          <div class="panel-heading">いいね一覧</div>
+          <% @like_list.each do |article|%>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <p class="company">会社名：<%= link_to article.user.name, "/abroads/#{article.user.id}" %></p>
+                <p class="plan">プラン名：<%= link_to article.title,"/articles/#{article.id}" %></p>
+                <a href="/articles/<%= article.id %>" class="stretched-link"></a>
+              </li>
+            </ul>
+          <% end %>
+      <% end %>
+    </div>
+  <% end %>
+  <% if current_user.id == @user.id %>
+  <h3>チャット一覧</h3>
+  <% @rooms.each do |r| %>
+    <% r.users.each do |u| %>
+     <% if u.id == current_user.id %>
+     <% else %>
+        <p><a href="/rooms/<%= r.id %>"><%= u.name %>さんとのチャット</a></p>
+     <% end %>
+    <% end %> 
+  <% end %>
+<% else %>
+
+<% end %>
+  <div class="primary text-right">
+    <% if @user.id == current_user.id %>
+
+    <% else %>
+      <% if @isRoom == true %>
+        <div class="roombtn text-right btn btn-primary">
+          <a href="/rooms/<%= @roomId %>">チャットへ</a>
+        </div>
+      <% else %>
+        <%= form_for @room do |f| %>
+          <%= fields_for @entry do |e| %>
+            <%= e.hidden_field :user_id, :value=> @user.id %>
+          <% end %>
+          <%= f.submit "お問い合わせチャット" %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <div class= "btn btn-primary">
+      <%= link_to '記事一覧',"/articles/" %>
+    </div>
+  </div>
+</div>
