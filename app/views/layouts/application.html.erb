@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>EngApp</title>
+    <title><%= yield(:title) %> | 留学支援システム</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <script src="https://kit.fontawesome.com/fd343208f2.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body>
@@ -14,24 +15,23 @@
       <header>
         <nav class="navbar navbar-expand-lg navbar-light ">
           <h4><%= link_to '留学支援システム', root_path %> </h4>
-          <div class="dropdown ">
-	          <div class="btn btn-default " type="button" data-toggle="dropdown">
-              <i class="fas fa-user-circle fa-2x "></i>
+          <% if user_signed_in? %>
+            <div class="dropdown ">
+	            <div class="btn btn-default " type="button" data-toggle="dropdown">
+                <i class="fas fa-user-circle fa-2x "></i>
+              </div>
+              <ul class="dropdown-menu">
+	              <li role="presentation"> <a href="/abroads/<%= current_user.id %>">マイページ</a></li>
+	              <div class="dropdown-divider"></div>
+		            <li role="presentation"><%= link_to "CHAT ROOM", rooms_path %></li>
+		            <div class="dropdown-divider"></div>
+		            <li role="presentation"><%= link_to "プロフィール編集", edit_user_registration_path %></li>
+		            <div class="dropdown-divider"></div>
+		            <li role="presentation"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+		            
+	            </ul> 
             </div>
-            <ul class="dropdown-menu">
-	            <li role="presentation"> <a href="/abroads/<%= current_user.id %>">マイページ</a></li>
-	            <div class="dropdown-divider"></div>
-		          <li role="presentation"><a href="#">いいね一覧</a></li>
-		          <div class="dropdown-divider"></div>
-		          <li role="presentation"><a href= edit_user_registration_path>プロフィール編集</li>
-		          <% if user_signed_in? %>
-		          <div class="dropdown-divider"></div>
-		          <li role="presentation"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-		          <% end %>
-	          </ul> 
-           </div>
-          
-            
+          <% end %>
         </nav>
           <!-- user_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド -->
           <% flash.each do |message_type, message| %>

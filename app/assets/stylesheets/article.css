@@ -2,6 +2,9 @@
 #article h2{
     margin:40px 20px;
 }
+#article .serch{
+    margin-right:60px;
+}
 #article .card {
   transition: all .6s ease-in-out;
   width: 18rem;
@@ -22,8 +25,10 @@
     margin:-50px 0 10px 140px;
 }
 #article .name a{
-  text-decoration:none; 
   color: black;
+}
+#article .card-title a{
+    color:black;
 }
 #article h4 {
     margin:20px 0;
@@ -33,21 +38,14 @@
   color:white;
   margin-left: -15px
 }
-.rate-good {
-  cursor: pointer ;
-  color: gold;
-}
-.rate-bad {
-  cursor: pointer ;
-  color: gray;
-}
- 
 /*----show----*/
 #artshow  h2 {
     margin-top:60px; 
     margin-left:50px;
 }
-
+#artshow .all{
+    margin:50px 0;
+}
 #artshow .all .btn a{
     text-decoration:none;
     color:white
@@ -57,7 +55,8 @@
     
 }
 #artshow .table th{
-    width:10%
+    width:10%;
+    vertical-align:middle;
 }
 #artshow .table td{
     border-bottom:2px  solid #dee2e6;
@@ -65,6 +64,10 @@
 #artshow .table td a{
     color:black;
     
+}
+#artshow .table td img{
+    width:30%;
+    height:30%;
 }
 #artshow .list-group-item .review{
     text-align: left;
@@ -83,4 +86,95 @@
 #artshow time{
     float:right;
     margin-right:-75px;
+}
+/*--new--*/
+#articlenew .d-flex{
+    margin:50px;
+}
+#articlenew .ml-auto{
+    margin-top:50px;
+}
+#img1{
+    width:18rem;
+    height:150px;
+}
+/*#pic,#imageをeditでもプレビュー使用*/
+#pic p{
+    margin-top:10px;
+}
+#image label{
+    margin-bottom:-30px;
+}
+/*---edit---*/
+#articledit h2{
+    margin-top:60px;
+}
+/*---ranking----*/
+#articlranking .card {
+  transition: all .6s ease-in-out;
+  width: 18rem;
+  max-height:300px;
+  margin:5%;
+  
+}
+#articlranking .card:hover{
+     transform: scale(1.05);
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.4);
+}
+#articlranking .card-img-top{
+    max-height:50%
+}
+#articlranking .rate{
+    margin-left:5px;
+    margin-top:0px;
+}
+#articlranking .name{
+    width:50%;
+    margin:-26px 0 10px 140px;
+}
+#articlranking .name a{
+  color: black;
+}
+#articlranking .card-title a{
+    color:black;
+}
+#articlranking h4 {
+    margin:20px 0;
+}
+#articlranking .all{
+    width:100%;
+}
+#articlranking .btn a{
+  text-decoration:none; 
+  color:white;
+}
+#articlranking .good{
+    margin:5px;
+}
+#articlranking .first .fas{
+    color:gold;
+}
+#articlranking .second .fas{
+    color:silver;
+}
+#articlranking  .thread .fas{
+    color:#B08A1C;
+}
+#articlranking .ranking{
+    margin:50px;
+    width:100%;
+}
+#articlranking .ranking .fas{
+    color:gold;
+    margin-left:1%;
+}
+#articlranking .card{
+    position:relative;
+}
+#articlranking .first,
+#articlranking .second,
+#articlranking .thread{
+    position: absolute;
+    top:-30px;
+    left:-30px;
 }

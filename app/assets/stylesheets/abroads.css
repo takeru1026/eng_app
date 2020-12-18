@@ -31,6 +31,9 @@
 #abroadshow .good a{
     color:black;
 }
+#abroadshow .primary{
+    margin:60px 0;
+}
 #abroadshow .primary .btn a{
     text-decoration:none; 
     color:white;
@@ -41,5 +44,17 @@
 }
 #abroadshow li.list-group-item:hover{
    transform: scale(1.05);
-  box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
+   box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
+}
+#abroadshow li.list-group-item .company{
+   text-align: left;
+    font-siza: 10px;
+}
+#abroadshow li.list-group-item .plan{
+    text-align:center;
+    font-siza: 20px;
+}
+#abroadshow .roombtn a{
+    text-decoration:none;
+    color:white;
 }

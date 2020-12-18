@@ -1,0 +1,75 @@
+<% provide(:title,"ランキング") %>
+<div id="articlranking" class="card-body row d-flex justify-content-center">
+  <div class="ranking">
+    <h1>おすすめ記事ランキング<i class="fas fa-crown"></i></h1>
+  </div>
+  <% @articles&.each_with_index do |article, i| %>
+    <% i += @base_of_ranking %>
+    
+    <div class="card border-dark m-4 col-md-3.5">
+      <% if i == 1 %>
+        <p class="first"><b>第<%= i %>位<i class="fas fa-crown"></i></b></p>
+      <% elsif i == 2 %>
+        <p class="second"><b>第<%= i %>位<i class="fas fa-crown"></i></b></p>
+      <% elsif i == 3 %>
+        <p class="thread"><b>第<%= i %>位<i class="fas fa-crown"></i></b></p>
+      <% elsif %>
+        <p><b>第<%= i %>位</b></p>
+      <% end %>
+      <%= image_tag article.images.to_s, :class=>"card-img-top" %>
+        <div class="rate text-left">
+          <% if article.rate_averate == 0%>
+            <td>レビューなし</td>
+          <% elsif article.rate_averate == 5%>
+            <td>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>          
+            </td>
+          <% elsif article.rate_averate == 4%>
+            <td>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>          
+            </td>
+
+          <% elsif article.rate_averate == 3%>
+            <td>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>
+            </td>
+
+          <%elsif article.rate_averate == 2%>
+            <td>
+              <i class="fas fa-star rate-good"></i>
+              <i class="fas fa-star rate-good"></i>          
+            </td>
+
+          <%elsif article.rate_averate == 1%>
+            <td>
+              <i class="fas fa-star rate-good"></i>
+            </td>
+          <%end%>
+        </div>
+        <div class="name text-right" >
+          <%= link_to article.user.name, "/abroads/#{article.user_id}" %>
+        </div>
+        <h4 class="card-title text-center"  >
+          <p><%=link_to article.title, "/articles/#{article.id}"%></p>
+        </h4>
+        <div class = "good text-left" id="article_<%= article.id %>" >
+          <%= render 'article', article: article %>
+        </div>
+    </div>
+  <% end %>
+  <div class="all text-right">
+    <div class= "btn btn-primary">
+      <%= link_to '記事一覧',"/articles/" %>
+    </div>
+  </div>
+</div>
+    

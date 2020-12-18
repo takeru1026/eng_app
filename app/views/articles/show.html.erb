@@ -1,3 +1,4 @@
+<% provide(:title,"記事詳細") %>
 <div id="artshow" class="container">
   <h2>記事詳細</h2>
   <div class="all text-right">
@@ -18,6 +19,22 @@
         </td>
       </tr> 
       <tr>
+        <th>費用</th>
+        <td class="text-center"><%= @articles.price %>～</td>
+      </tr>
+      <tr>
+        <th>国</th>
+        <td class="text-center"><%= @articles.country %></td>
+      </tr>
+      <tr>
+        <th>言語</th>
+        <td class="text-center"><%= @articles.language %></td>
+      </tr>
+      <tr>
+        <th>期間</th>
+        <td class="text-center"><%= @articles.period %></td>
+      </tr>
+      <tr>
         <th>プラン詳細</th>
         <td class="text-center"><%= @articles.description %></td>
       </tr> 
@@ -34,40 +51,40 @@
         <li class="list-group-item">
           <p class="review">
             <%= c.user.name %>
-            <% if @articles.rate_averate == 0%>
+            <% if c.score == 0%>
               レビューなし
-            <%elsif @articles.rate_averate == 5%>
+            <%elsif c.score == 5%>
               <i class="fas fa-star rate-good"></i>
               <i class="fas fa-star rate-good"></i>
               <i class="fas fa-star rate-good"></i>
               <i class="fas fa-star rate-good"></i>
               <i class="fas fa-star rate-good"></i>          
-            <%elsif @articles.rate_averate == 4%>
+            <%elsif c.score == 4%>
               <i class="fas fa-star rate-good"></i>
               <i class="fas fa-star rate-good"></i>
               <i class="fas fa-star rate-good"></i>
               <i class="fas fa-star rate-good"></i>          
 
-            <%elsif @articles.rate_averate == 3%>
+            <%elsif c.score == 3%>
               <i class="fas fa-star rate-good"></i>
               <i class="fas fa-star rate-good"></i>
               <i class="fas fa-star rate-good"></i>
-            <%elsif@articles.rate_averate == 2%>
+            <%elsif c.score == 2%>
               <i class="fas fa-star rate-good"></i>
               <i class="fas fa-star rate-good"></i>          
-            <%elsif @articles.rate_averate == 1%>
+            <%elsif c.score == 1%>
               <i class="fas fa-star rate-good"></i>
             <%end%>
           </p>
           <p class="comment"><%= c.comment %></p>
           <time datetime="<%= c.created_at %>">
-  　　　　  　　　<%= time_ago_in_words(c.created_at) %> ago
+  　　　　  　　　<%= time_ago_in_words(c.created_at) %>前
 　　　　　</time>
       </ul>
       <% end %>
   </div>
   <div class="all text-right">
-    <% if user_signed_in? && @articles.user_id == current_user.id %>
+    <% if user_signed_in? && @articles.user.id == current_user.id %>
       <div class= "btn btn-primary">
         <%= link_to '編集', "/articles/#{@articles.id}/edit/" %>
       </div>

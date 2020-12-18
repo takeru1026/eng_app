@@ -1,0 +1,57 @@
+<% provide(:title,"CHAT") %>
+<div id="roomshow" >
+  <% @entries.each do |e| %>
+    <% if e === current_user.id %>
+  
+    <% elsif %>
+      <h5><strong><a href="/users/<%= e.user.id %>"><%= e.user.name %>さん</a></strong></h5>
+    <% end %>
+  <% end %>
+
+  <hr>
+  <div class="contents" id="message">
+  <% if @messages.present? %>
+    <% @messages.each do |m| %>
+      <% if m.user.id == current_user.id %>
+        <div class="avator1">
+          <div class="avapic1"><i class="fas fa-user-circle fa-2x"></i></div>
+          <p><%= m.user.name %></p>
+        </div>
+        <div class="user1">
+          <strong><p><%= m.content %></p></strong>
+          <div class="time text-right">
+            <%= l m.created_at, format: :short %>
+          </div>
+        </div>
+      <% else %>
+        <div class="avator2">
+          <div class="avapic2"><i class="fas fa-user-circle fa-2x"></i></div>
+          <p><%= m.user.name %></p>
+        </div>
+        <div class="user2">
+          <strong><p><%= m.content %></p></strong>
+          <div class="time text-right">
+            <%= l m.created_at, format: :short %>
+          </div>
+        </div>
+        
+      <% end %>
+    <% end %>
+  <% else %>
+    <h3>メッセージはまだありません</h3>
+  <% end %>
+  </div>
+  <hr>
+  <div class="chatoroom"></div>
+    <%= form_for @message do |f| %>
+      <div class="field" >
+        <%= f.text_area :content, :placeholder => "メッセージを入力して下さい"%>
+      </div>
+      <%= f.hidden_field :room_id, :value => @room.id %>
+      <div class="sub">
+        <%= f.submit "送信" %>
+      </div>
+    <% end %>
+  </div>
+
+</div>

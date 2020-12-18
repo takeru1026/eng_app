@@ -1,6 +1,6 @@
 #main .navbar{
     height:60px;
-    background-color:#FFE4B5
+    background-color:#CCCCCC
     
 }
 #main .navbar h4 a{
@@ -24,7 +24,9 @@
     margin:auto;
 }
 #main .logname {
-    margin-left:100px;
+    margin-right:auto;
+    padding-left:4%;
+    background-color:#DDDDDD;
 }
 #main .dropdown-menu li{
     transition: all .3s ease-in-out;

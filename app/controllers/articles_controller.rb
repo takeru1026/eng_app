@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
   
   def index
    @q = Article.ransack(params[:q])
-   @articles = @q.result(distinct: true).page(params[:page]).per(10)
+   @articles = @q.result(distinct: true).page(params[:page]).per(6)
   end
   
   def new
@@ -54,10 +54,20 @@ class ArticlesController < ApplicationController
       flash[:success] = "削除しました"
     end
   end
+  def article_ranking
+     @articles = Article.joins(:likes)
+      .group(:id).order('count(likes.article_id) desc')
+      .page(params[:page]).per(9)
+      if params[:page].present?
+        @base_of_ranking = params[:page].to_i*10+1-10
+      else
+        @base_of_ranking = 1
+      end
+  end
   
   private
   def article_params
-    params.require(:article).permit(:title, :description, :images, :remove_image).merge(user_id:current_user.id)
+    params.require(:article).permit(:title, :description, :images, :remove_image, :price, :language, :period, :country).merge(user_id:current_user.id)
   end
   def if_not_company_user?
     redirect_to root_path unless current_user.company_user?

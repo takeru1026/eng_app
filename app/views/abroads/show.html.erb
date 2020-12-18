@@ -1,3 +1,4 @@
+<% provide(:title,"ユーザー詳細") %>
 <div id="abroadshow" class="container">
   <h2>ユーザー詳細</h2>
   <table class="table">
@@ -36,7 +37,7 @@
     <% end %>
     </thead>
   </table>
-  <% if @article %>
+  <% if  @user.company_user? %>
     <div class="panel panel-default">
       <div class="panel-heading">記事</div>
       <% @user.articles.each do |article| %>
@@ -47,14 +48,56 @@
         </ul>
       <% end %>
     </div>
+    
   <% else %>
-  <div class="good">
-    <%= link_to "いいね一覧", "/users/#{@user.id}" %>
-  </div>
+    <div class="good">
+      <% if @like_list.present? %>
+        <div class="panel panel-default">
+          <div class="panel-heading">いいね一覧</div>
+          <% @like_list.each do |article|%>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <p class="company">会社名：<%= link_to article.user.name, "/abroads/#{article.user.id}" %></p>
+                <p class="plan">プラン名：<%= link_to article.title,"/articles/#{article.id}" %></p>
+                <a href="/articles/<%= article.id %>" class="stretched-link"></a>
+              </li>
+            </ul>
+          <% end %>
+      <% end %>
+    </div>
   <% end %>
+  <% if current_user.id == @user.id %>
+  <h3>チャット一覧</h3>
+  <% @rooms.each do |r| %>
+    <% r.users.each do |u| %>
+     <% if u.id == current_user.id %>
+     <% else %>
+        <p><a href="/rooms/<%= r.id %>"><%= u.name %>さんとのチャット</a></p>
+     <% end %>
+    <% end %> 
+  <% end %>
+<% else %>
+
+<% end %>
   <div class="primary text-right">
-      <div class= "btn btn-primary">
-       <%= link_to '記事一覧',"/articles/" %>
-      </div>
+    <% if @user.id == current_user.id %>
+
+    <% else %>
+      <% if @isRoom == true %>
+        <div class="roombtn text-right btn btn-primary">
+          <a href="/rooms/<%= @roomId %>">チャットへ</a>
+        </div>
+      <% else %>
+        <%= form_for @room do |f| %>
+          <%= fields_for @entry do |e| %>
+            <%= e.hidden_field :user_id, :value=> @user.id %>
+          <% end %>
+          <%= f.submit "お問い合わせチャット" %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <div class= "btn btn-primary">
+      <%= link_to '記事一覧',"/articles/" %>
+    </div>
   </div>
 </div>

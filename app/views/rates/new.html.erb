@@ -1,25 +1,24 @@
-<div class="container">
-  <div style="margin:30px">
-    <h3>記事レビューを書く</h3>
-  </div>
-  
-
-  <div style="margin:30px">
-    <h5>記事: <%= @article.title %><br>会社名：<%= @article.user.name %></h5>
-  </div>
-  <div style="margin:30px">
-    <div id="stars" >
-      満足度<br>
+<% provide(:title,"レビュー") %>
+<div class="container" id="rate">
+  <h1>記事レビューを書く</h1>
+  <h3>記事： <%= @article.title %><br>会社名：<%= @article.user.name %></h>
+    <h4>満足度</h4><br>
+    <div id="stars" >  
       &nbsp<i class="fas fa-star rate-good"></i>
-      <i class="fas fa-star rate-good"></i>
-      <i class="fas fa-star rate-good"></i>
-      <i class="fas fa-star rate-good"></i>
-      <i class="fas fa-star rate-good"></i>
+           <i class="fas fa-star rate-good"></i>
+           <i class="fas fa-star rate-good"></i>
+           <i class="fas fa-star rate-good"></i>
+           <i class="fas fa-star rate-good"></i>
     </div>
-    <%= form_for([@article, Rate.new]) do |f| %>
-      <%= f.hidden_field :score ,id: "target_value"%>
-      <%= f.text_area :comment, size: "30x5"%>
-      <%= f.submit%>
-    <% end %>
-  </div>
+    <div class="comment">
+      <%= form_for([@article, Rate.new]) do |f| %>
+        <%= f.hidden_field :score ,id: "target_value"%>
+        <div class="form-group">
+          <%= f.text_area :comment, class: 'form-control'%>
+        </div>
+        <div class="review">
+          <%= f.submit 'レビュー投稿', class: 'btn btn-primary btn-block'%>
+        </div>
+      <% end %>
+    </div>
 </div>

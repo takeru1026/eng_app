@@ -1,13 +1,18 @@
+<% provide(:title,"記事一覧") %>
 <div id="article" class="container">
-  <h2>記事一覧</h2>
+  <h2>プラン一覧</h2>
     <%= search_form_for @q do |f| %>
-      <div class="text-right">
-        <%= f.search_field :title_cont, class: "col-md-3 ml-30%" %>
+      <div class="serch text-right">
+        <p>
+          <%= f.label :キーワード %>
+          <%= f.search_field :period_or_language_or_title_or_country_cont,  class: "col-md-3 ml-30%" %>
+        </p>
+        <%= f.select( :sorts,{'タイトル':'title ASC', '新しい記事順': 'id desc','古い記事順': 'id asc','価格の安い順': 'price asc', '価格の高い順': 'price desc'})%>
         <%= f.submit "検索" %>
       </div>
     <% end %>
-    <div >
-     <%= sort_link(@q, :title, "タイトル") %>
+    <div>
+     <%= link_to "ランキング", article_article_ranking_path %>
     </div>
     <div class="card-body row d-flex justify-content-center" >
       <% @articles.each do |article| %>
@@ -56,9 +61,11 @@
             <%= link_to article.user.name, "/abroads/#{article.user_id}" %>
           </div>
           <h4 class="card-title text-center"  >
-            <p><%= article.title %></p>
+            <p><%=link_to article.title, "/articles/#{article.id}"%></p>
           </h4>
-          <a href="/articles/<%= article.id %>" class="stretched-link"></a>
+          <div class = "text-left" id="article_<%= article.id %>" >
+            <%= render 'article', article: article %>
+          </div>
         </div>
       <% end %>
     </div>
