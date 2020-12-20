@@ -38,6 +38,14 @@
   color:white;
   margin-left: -15px
 }
+#article .all{
+    margin:50px 0;
+}
+#article .all .btn a{
+    text-decoration:none;
+    color:white;
+    margin-left:2px;
+}
 /*----show----*/
 #artshow  h2 {
     margin-top:60px; 
@@ -170,10 +178,12 @@
 }
 #articlranking .card{
     position:relative;
+    margin:30px;
 }
 #articlranking .first,
 #articlranking .second,
-#articlranking .thread{
+#articlranking .thread,
+#articlranking .other{
     position: absolute;
     top:-30px;
     left:-30px;

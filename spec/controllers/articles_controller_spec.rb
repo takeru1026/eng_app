@@ -4,7 +4,7 @@ RSpec.describe ArticlesController, type: :controller do
     
     before do
       @user = FactoryBot.create(:user)
-      @article= FactoryBot.create(:article)
+      @article = FactoryBot.create(:article, user_id: @user.id)
     end
     
     describe "#index" do
@@ -68,22 +68,23 @@ RSpec.describe ArticlesController, type: :controller do
     end
     
      describe "#destroy" do
-       context "as an authorized user" do
+       
       # 正常に記事を削除できるか？
         it "deletes an article" do
-          article_params= FactoryBot.attributes_for(:article)
+          
           sign_in @user
           expect {
-            delete :destroy, params: {id: @article.id, article: article_params}
+            delete :destroy, params: {id: @article.id, article: @article}
           }.to change(Article, :count).by(-1)
         end
       # 記事を削除した後、ルートページへリダイレクトしているか？
         it "redirects the page to root_path" do
+          
           sign_in @user
-          delete :destroy, params: {id: @article.id}
+          delete :destroy, params: {id: @article.id, article: @article }
           expect(response).to redirect_to articles_path
         end
-       end
+       
      end
       
 end
