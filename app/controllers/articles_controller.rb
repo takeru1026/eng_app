@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
   def index
    @q = Article.ransack(params[:q])
    @articles = @q.result(distinct: true).page(params[:page]).per(6)
+   @check = @q.result(distinct: true)
   end
   
   def new
