@@ -27,6 +27,13 @@
 #article .name a{
   color: black;
 }
+#article .card-title p{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width:80%;
+    margin-left:12%;
+}
 #article .card-title a{
     color:black;
 }
