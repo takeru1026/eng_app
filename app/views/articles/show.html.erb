@@ -1,9 +1,9 @@
-<% provide(:title,"記事詳細") %>
+<% provide(:title,"プラン詳細") %>
 <div id="artshow" class="container">
-  <h2>記事詳細</h2>
+  <h2>プラン詳細</h2>
   <div class="all text-right">
     <div class= "btn btn-primary">
-      <%= link_to '記事一覧',"/articles/" %>
+      <%= link_to 'プラン一覧',"/articles/" %>
     </div>
   </div>
   <table class="table">
@@ -20,7 +20,7 @@
       </tr> 
       <tr>
         <th>費用</th>
-        <td class="text-center"><%= @articles.price %>～</td>
+        <td class="text-center"><%= @articles.price %>円～</td>
       </tr>
       <tr>
         <th>国</th>

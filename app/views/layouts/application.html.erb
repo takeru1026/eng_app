@@ -28,7 +28,8 @@
 		            <li role="presentation"><%= link_to "プロフィール編集", edit_user_registration_path %></li>
 		            <div class="dropdown-divider"></div>
 		            <li role="presentation"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-		            
+		            <div class="dropdown-divider"></div>
+		            <li role="presentation"><%= link_to "プラン一覧", articles_path %></li>
 	            </ul> 
             </div>
           <% end %>
