@@ -4,9 +4,10 @@ class RatesController < ApplicationController
   end
   
   def create
+    @article = Article.find(params[:article_id])
     @rate = Rate.new(rate_params)
     if  @rate.save
-        redirect_to articles_path
+        redirect_to @article
     end
   end
   

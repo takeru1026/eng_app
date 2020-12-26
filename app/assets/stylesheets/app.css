@@ -35,3 +35,44 @@
     transform: scale(1.05);
   box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
 }
+@media only screen and (max-width: 480px){
+   #main .navbar{
+    height:40px;
+    background-color:#6699FF;
+    
+}
+#main .navbar h4{
+    margin-top:-4%;
+    
+}
+#main .navbar h4 a{
+    text-decoration:none; 
+    color:white; 
+    font-size:15px;
+}
+#main .dropdown .btn .fas{
+    margin-top:-40%;
+    font-size:30px;
+}
+#main .dropdown-menu{
+    min-width:24rem;
+    margin:-7px 0 0 -304px;
+    text-align: center;
+    background-color: gray;
+    
+}
+#main .dropdown-menu a{
+    color:black;text:center;
+    margin:auto;
+}
+#main .logname {
+    margin-right:auto;
+    padding-left:4%;
+    background-color:#DDDDDD;
+    line-height:15px;
+    font-size:10px;
+}
+#main .dropdown-menu li{
+    transition: all .3s ease-in-out;
+}
+}

@@ -2,13 +2,19 @@
 #article h2{
     margin:40px 20px;
 }
+#article .rank .fas{
+    color:gold;
+}
+#article .rank a{
+    color:black;
+}
 #article .serch{
     margin-right:60px;
 }
 #article .card {
   transition: all .6s ease-in-out;
-  width: 18rem;
-  max-height:300px;
+  width: 15rem;
+  max-height:240px;
 }
 #article .card:hover{
      transform: scale(1.05);
@@ -18,11 +24,13 @@
     max-height:50%
 }
 #article .rate{
-    margin-left:5px
+    margin-left:5px;
+    font-size:15px;
 }
 #article .name{
     width:50%;
-    margin:-50px 0 10px 140px;
+    margin-left:auto;
+    margin-top:-20%;
 }
 #article .name a{
   color: black;
@@ -40,6 +48,18 @@
 #article h4 {
     margin:20px 0;
 }
+#article .money{
+    margin-left:auto;
+    margin-top:-4%;
+    
+}
+#article .like{
+    margin:-10% 0 0 1%;
+}
+#article .btns{
+    text-align:right;
+    margin:-6% 2px 20px 0;
+}
 #article .btn a{
   text-decoration:none; 
   color:white;
@@ -53,6 +73,119 @@
     color:white;
     margin-left:2px;
 }
+@media only screen and (max-width: 480px){
+#article h2{
+    margin:25px 20px;
+    font-size:20px;
+}
+#article .rank{
+    font-size:15px;
+}
+#article .rank .fas{
+    color:gold;
+}
+#article .rank a{
+    color:black;
+}
+#article .serch{
+    margin-right:10px;
+}
+#article .serch .keyword{
+    margin-bottom:0px;
+}
+#article .serch .keyword label{
+    font-size:12px;
+}
+#article .serch .keyword input{
+    width:100px;
+    height:20px;
+}
+#article .serch .select select{
+    width:100px;
+    height:20px;
+    font-size:12px;
+   
+}
+#article .serch .select input{
+    width:13%;
+    height:20px;
+    font-size:10px;
+}
+#article .card {
+  transition: all .6s ease-in-out;
+  width: 35%;
+  max-height:150px;
+}
+#article .rate{
+    font-size:5px;
+    margin:0 0 0 2%;
+    text-align:left;
+}
+#article .name{
+    width:50%;
+    margin-left:auto;
+    margin-top:-34%;
+    font-size:5px;
+}
+#article .name a{
+  color: black;
+}
+#article .card-title p{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width:80%;
+    margin-left:12%;
+    font-size:11px;
+}
+#article .card-title a{
+    color:black;
+}
+#article h4 {
+    margin:10px 0;
+}
+#article .money{
+    font-size:10px;
+}
+#article .like{
+    font-size:15px;
+    margin:-16% 0 0 1%;
+    text-align:left;
+}
+#article .btn a{
+  text-decoration:none; 
+  color:white;
+  margin-left: -15px
+}
+#article .all{
+    margin:50px 0;
+}
+#article .all .btn a{
+    text-decoration:none;
+    color:white;
+    margin-left:2px;
+}
+#article .page-link{
+    line-height:1.0;
+    font-size:10px;
+}
+#article .page{
+    font-size:15px
+}
+#article strong{
+    font-weight:400;
+    font-size:15px
+}
+#article .btns{
+    margin:-40px 2px 15px 0;
+}
+#article .btn{
+    padding:0.2rem 0.5rem;
+    font-size:13px;
+    line-height:1.5;
+}
+}
+
 /*----show----*/
 #artshow  h2 {
     margin-top:60px; 
@@ -60,6 +193,7 @@
 }
 #artshow .all{
     margin:50px 0;
+    text-align:right;
 }
 #artshow .all .btn a{
     text-decoration:none;
@@ -70,11 +204,12 @@
     
 }
 #artshow .table th{
-    width:10%;
+    width:12%;
     vertical-align:middle;
 }
 #artshow .table td{
     border-bottom:2px  solid #dee2e6;
+    text-align:center;
 }
 #artshow .table td a{
     color:black;
@@ -96,15 +231,67 @@
     margin-left:15px
 }
 #artshow .list-group{
-    margin:10px 0 10px 70px
+    margin:10px 10px 10px 10px
 }
 #artshow time{
     float:right;
     margin-right:-75px;
 }
+@media only screen and (max-width: 480px){
+#artshow  h2 {
+    margin-top:30px; 
+    margin-left:20px;
+    font-size:20px;
+}
+#artshow .table{
+    margin-top:-10%;
+}
+#artshow .all .plan{
+    width:23%;
+    line-height:12px;
+    font-size:10px;
+    margin-top:-15%;
+}
+#artshow .table th{
+    width:20%;
+    vertical-align:middle;
+    font-size:12px;
+}
+#artshow .table td{
+    border-bottom:2px  solid #dee2e6;
+    vertical-align:middle;
+    font-size:12px;
+}
+#artshow .panel-heading{
+    font-size:17px;
+}
+#artshow .list-group-item .comment{
+    text-align: center;
+    margin-top:-2%;
+}
+#artshow time{
+    text-align:right;
+    margin-right:-35%;
+    margin-top:-2%;
+}
+#artshow .edit,
+#artshow .dele{
+    width:15%;
+    line-height:12px;
+    font-size:10px;
+}
+#artshow .review{
+    width:28%;
+    line-height:12px;
+    font-size:10px;
+}
+}
 /*--new--*/
 #articlenew .d-flex{
-    margin:50px;
+    margin:50px 0;
+}
+#articlenew h2{
+    font-size:25px;
 }
 #articlenew .ml-auto{
     margin-top:50px;
@@ -120,6 +307,7 @@
 #image label{
     margin-bottom:-30px;
 }
+
 /*---edit---*/
 #articledit h2{
     margin-top:60px;
@@ -127,9 +315,8 @@
 /*---ranking----*/
 #articlranking .card {
   transition: all .6s ease-in-out;
-  width: 18rem;
-  max-height:300px;
-  margin:5%;
+  width: 15rem;
+  max-height:240px;
   
 }
 #articlranking .card:hover{
@@ -141,14 +328,22 @@
 }
 #articlranking .rate{
     margin-left:5px;
-    margin-top:0px;
+    font-size:15px;
 }
 #articlranking .name{
     width:50%;
-    margin:-26px 0 10px 140px;
+    margin-left:auto;
+    margin-top:-10%;
 }
 #articlranking .name a{
   color: black;
+}
+#articlranking .card-title p{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width:80%;
+    margin-left:12%;
 }
 #articlranking .card-title a{
     color:black;
@@ -158,13 +353,14 @@
 }
 #articlranking .all{
     width:100%;
+    text-align:right;
 }
 #articlranking .btn a{
   text-decoration:none; 
   color:white;
 }
 #articlranking .good{
-    margin:5px;
+    margin:-3% 0 0 1%;
 }
 #articlranking .first .fas{
     color:gold;
@@ -194,4 +390,107 @@
     position: absolute;
     top:-30px;
     left:-30px;
+}
+@media only screen and (max-width: 480px){
+#articlranking .ranking{
+    margin:40px 5px;
+}
+#articlranking h1{
+    font-size:20px;
+    font-family:system-ui;
+}
+ #articlranking .rank{
+    font-size:15px;
+}
+#articlranking .rank .fas{
+    color:gold;
+}
+#articlranking .rank a{
+    color:black;
+}
+#articlranking .serch{
+    margin-right:10px;
+}
+#articlranking .serch .keyword{
+    margin-bottom:0px;
+}
+#articlranking .serch .keyword label{
+    font-size:12px;
+}
+#articlranking .serch .keyword input{
+    width:100px;
+    height:20px;
+}
+#articlranking .serch .select select{
+    width:100px;
+    height:20px;
+    font-size:12px;
+   
+}
+#articlranking .serch .select input{
+    width:13%;
+    height:20px;
+    font-size:10px;
+}
+#articlranking .card {
+  transition: all .6s ease-in-out;
+  width: 35%;
+  max-height:150px;
+}
+#articlranking .rate{
+    font-size:5px;
+    margin:0 0 0 2%;
+    text-align:left;
+}
+#articlranking .name{
+    width:50%;
+    margin-left:auto;
+    margin-top:-12%;
+    font-size:5px;
+}
+#articlranking .name a{
+  color: black;
+}
+#articlranking .card-title p{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width:80%;
+    margin-left:12%;
+    font-size:11px;
+}
+#articlranking .card-title a{
+    color:black;
+}
+#articlranking h4 {
+    margin:2% 0 0 0 ;
+}
+#articlranking .money{
+    font-size:10px;
+}
+#articlranking .like{
+    font-size:15px;
+    margin:-16% 0 0 1%;
+    text-align:left;
+}
+#articlranking .good{
+    margin:-2% 0 0 1%;
+}
+#articlranking .first,
+#articlranking .second,
+#articlranking .thread,
+#articlranking .other{
+    position: absolute;
+    top:-25px;
+    left:-20px;
+    font-size:15px;
+}
+#articlranking .all{
+    width:23%;
+    line-height:12px;
+    font-size:10px;
+    margin:10% 3% 5% 0;
+    width:100%;
+    text-align:right;
+}
 }

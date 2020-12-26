@@ -90,9 +90,9 @@
   transform: rotate(-35deg);
 }
 #roomshow .user2 {
-    margin:20px;
-    margin-right:auto;
-    margin-left:6%;
+  margin:20px;
+  margin-right:auto;
+  margin-left:6%;
   position: relative; 
   padding:10px;
   max-width:50%;
@@ -105,7 +105,7 @@
 #roomshow .avator2 {
     width:7%;
     margin-right:auto;
-    margin-bottom:-4%;
+    margin-bottom:-3%;
 }
 #roomshow .avator2 p{
     margin-left:10%;
@@ -157,4 +157,24 @@
    width:95%;
    height:auto;
    margin:10px;
+}
+@media only screen and (max-width: 480px){
+#roomshow .user1 .time,
+#roomshow .user2 .time{
+    width:40%;
+    margin-left:auto;
+    margin-top:-3%;
+    font-size:12px;
+}
+#roomshow .avator1 {
+    width:7%;
+    margin-left:88%;
+    margin-bottom:-4%;
+}
+#roomshow .avator1 p{
+    margin-left:-20px;
+}
+#roomshow .avapic2{
+    margin-left:50%;
+}
 }

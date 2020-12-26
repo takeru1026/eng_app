@@ -3,23 +3,25 @@
   <h2>プラン一覧</h2>
     <%= search_form_for @q do |f| %>
       <div class="serch text-right">
-        <p>
+        <p class="keyword">
           <%= f.label :キーワード %>
-          <%= f.search_field :period_or_language_or_title_or_country_or_user_name_cont,  class: "col-md-3 ml-30%" %>
+          <%= f.search_field :period_or_language_or_title_or_country_or_user_name_cont%>
         </p>
+        <p class="select">
         <%= f.select( :sorts,{'タイトル':'title ASC', '新しい記事順': 'id desc','古い記事順': 'id asc','価格の安い順': 'price asc', '価格の高い順': 'price desc'})%>
         <%= f.submit "検索" %>
+        </p>
       </div>
       
     <% end %>
-    <div>
-     <%= link_to "ランキング", article_article_ranking_path %>
+    <div class="rank">
+     <%= link_to "ランキング", article_article_ranking_path %><i class="fas fa-crown"></i>
     </div>
     <div class="card-body row d-flex justify-content-center" >
       <% @articles.each do |article| %>
         <div class="card border-dark m-4 col-md-3.5">
           <%= image_tag article.images.to_s, :class=>"card-img-top" %>
-          <div class="rate text-left">
+          <div class="rate">
 
             <% if article.rate_averate == 0%>
               <td>レビューなし</td>
@@ -64,20 +66,25 @@
           <h4 class="card-title text-center"  >
             <p><%=link_to article.title, "/articles/#{article.id}"%></p>
           </h4>
-          <div class = "text-left" id="article_<%= article.id %>" >
+          <div class="money">
+            <%= article.price %>円～
+          </div>
+          <div class = "like" id="article_<%= article.id %>" >
             <%= render 'article', article: article %>
           </div>
         </div>
       <% end %>
     </div>
-    <%= page_entries_info @articles %>
+    <div class="page">
+      <%= page_entries_info @articles %>
+    </div>
     <div class="text-left">
       <%= paginate @articles %>
     </div>
     
   <% if current_user.company_user? && !(current_user == @user) %>
-    <div class="text-right">
-      <div class="btn btn-primary text-center">
+    <div class="btns">
+      <div class="btn btn-primary">
       　<%= link_to "新規投稿", " /articles/new" %>
       </div>
     </div>

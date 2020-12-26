@@ -1,46 +1,46 @@
 <% provide(:title,"プラン詳細") %>
 <div id="artshow" class="container">
   <h2>プラン詳細</h2>
-  <div class="all text-right">
-    <div class= "btn btn-primary">
+  <div class="all ">
+    <div class= "plan btn btn-primary">
       <%= link_to 'プラン一覧',"/articles/" %>
     </div>
   </div>
   <table class="table">
 	  <thead>
 		  <tr>
-        <th>プラン名</th>
-        <td class="text-center"><%= @articles.title %></td>
+        <th>プラン</th>
+        <td><%= @articles.title %></td>
       </tr> 
       <tr>
         <th>会社名</th>
-        <td class="text-center">
+        <td>
           <%= link_to @articles.user.name, "/abroads/#{@articles.user_id}"%>
         </td>
       </tr> 
       <tr>
         <th>費用</th>
-        <td class="text-center"><%= @articles.price %>円～</td>
+        <td><%= @articles.price %>円～</td>
       </tr>
       <tr>
         <th>国</th>
-        <td class="text-center"><%= @articles.country %></td>
+        <td><%= @articles.country %></td>
       </tr>
       <tr>
         <th>言語</th>
-        <td class="text-center"><%= @articles.language %></td>
+        <td><%= @articles.language %></td>
       </tr>
       <tr>
         <th>期間</th>
-        <td class="text-center"><%= @articles.period %></td>
+        <td><%= @articles.period %></td>
       </tr>
       <tr>
         <th>プラン詳細</th>
-        <td class="text-center"><%= @articles.description %></td>
+        <td><%= @articles.description %></td>
       </tr> 
       <tr>
         <th class="align-middle">画像</th>
-        <td class="text-center"><%= image_tag @articles.images.to_s %></td>
+        <td><%= image_tag @articles.images.to_s %></td>
       </tr>
     </thead>
   </table>
@@ -83,16 +83,16 @@
       </ul>
       <% end %>
   </div>
-  <div class="all text-right">
+  <div class="all">
     <% if user_signed_in? && @articles.user.id == current_user.id %>
-      <div class= "btn btn-primary">
+      <div class= "edit btn btn-primary">
         <%= link_to '編集', "/articles/#{@articles.id}/edit/" %>
       </div>
-      <div class= "btn btn-primary">
+      <div class= "dele btn btn-primary">
         <%= link_to '削除', "/articles/#{@articles.id}", method: :delete %>
       </div>
     <% end %>
-    <div class= "btn btn-primary">
+    <div class= "review btn btn-primary">
       <%= link_to 'レビューを書く', new_article_rate_path(@articles) %>
     </div>
   </div>

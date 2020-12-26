@@ -9,7 +9,7 @@
         <td><%= @user.name %></td>
       </tr> 
       <tr>
-        <th>メールアドレス</th>
+        <th>メール</th>
         <td><%= @user.email %></td>
       </tr>
       
@@ -19,7 +19,7 @@
         <td><%= @user.name %></td>
       </tr> 
       <tr>
-        <th>メールアドレス</th>
+        <th>メール</th>
         <td><%= @user.email %></td>
       </tr> 
       <tr>
@@ -92,12 +92,12 @@
           <%= fields_for @entry do |e| %>
             <%= e.hidden_field :user_id, :value=> @user.id %>
           <% end %>
-          <%= f.submit "お問い合わせチャット" %>
+          <%= f.submit "お問い合わせチャット"  %>
         <% end %>
       <% end %>
     <% end %>
     <div class= "btn btn-primary">
-      <%= link_to '記事一覧',"/articles/" %>
+      <%= link_to 'プラン一覧',"/articles/" %>
     </div>
   </div>
 </div>
