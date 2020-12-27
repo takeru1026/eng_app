@@ -5,7 +5,7 @@
   text-decoration: none;
 }
 #singup .box {
-  width: 35%;
+  width: 30%;
   height:auto;
   margin: 60px auto 30px;
   border-radius: 4px;
@@ -28,7 +28,13 @@
 #singup .box-email {
   margin-bottom: 13px;
 }
-
+#singup .birthday {
+  margin-bottom: 13px;
+}
+#singup .birthday label{
+  font-weight: 600;
+  font-size:13px;
+}
 #singup .box-password {
   margin-bottom: 22px;
 }
@@ -100,7 +106,20 @@
 #singup .box-newusr a:hover {
   background: #e7e9ec;
 }
-
+@media only screen and (max-width: 480px){
+  #singup .box {
+  width: 70%;
+  height:auto;
+  margin: 40px 20% 20px 11%;
+  border-radius: 4px;
+  border: 1px #ddd solid;
+  
+}
+#singup .birthday p{
+  font-size:15px;
+  font-weight: 700;
+}
+}
 /*---editpass---*/
 #edit_pass * {
   margin:0;

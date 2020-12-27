@@ -17,7 +17,7 @@
       <%= f.label :メールアドレス %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
-    <div class="box-email">
+    <div class="birthday">
       <%= f.label :誕生日 %>
       <p>
         <%= raw sprintf(f.date_select(:birthday, use_month_numbers: true, start_year:  1960,  end_year: (Time.now.year), default:  Date.new(1989, 1, 1), date_separator: '%s'),   '年 ', '月 ') + '日' %>

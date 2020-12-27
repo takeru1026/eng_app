@@ -1,9 +1,8 @@
 <% provide(:title,"CHAT") %>
 <div id="roomshow" >
   <% @entries.each do |e| %>
-    <% if e === current_user.id %>
   
-    <% elsif %>
+    <% if e.user_id != current_user.id %>
       <h5><strong><a href="/abroads/<%= e.user.id %>"><%= e.user.name %>さん</a></strong></h5>
     <% end %>
   <% end %>
