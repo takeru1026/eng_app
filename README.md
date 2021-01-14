@@ -1,24 +1,46 @@
-# README
+# 留学支援システム
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+留学を考えている人に向けた留学プラン掲載サイトです。
 
-Things you may want to cover:
 
-* Ruby version
+# Description
 
-* System dependencies
+カナダ留学に行く際に留学プランを比較できるサイトがなく、比較に苦労した経験から留学支援システムを開発しました。
+留学に行きたい学生、社会人は留学支援システムを利用することで比較ができ自分にとってよりよい留学プランを選択できます。
+また、留学企業様も留学支援システムに記事を投稿するだけで顧客獲得がスムーズになります。
 
-* Configuration
 
-* Database creation
 
-* Database initialization
+# Usage
 
-* How to run the test suite
+1. 新規登録よりユーザー登録を行ってください。
+2. 新規登録完了後プラン一覧ページに遷移します。
+3. レビューやいいね件数でお好みの留学エージェントとマッチングすることができます。
+4. DM機能が搭載されているため個別でのやりとりが可能です。
 
-* Services (job queues, cache servers, search engines, etc.)
+※企業側のログインは別ものになり、そこではプラン記事の投稿をすることが可能です。
 
-* Deployment instructions
+# URL
 
-* ...
+https://firstengapp.herokuapp.com/
+
+# Dependency
+
+* Ruby 2.6.3
+* Rails 5.7.4
+* AWS
+* SQLite3
+* PostgreSQL
+* heroku
+
+# 機能一覧
+
+* ユーザー新規登録、ユーザー編集、ログイン機能
+* 記事新規投稿、投稿編集、投稿削除
+* レビュー機能
+* いいね機能
+* タイトル、記事内容、ソート検索機能
+* ページネーション機能
+* DM機能
+* レビュー評価によるランキング機能
+* レスポンシブ対応済み
