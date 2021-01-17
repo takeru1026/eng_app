@@ -12,7 +12,7 @@
 留学に行きたい学生、社会人は留学支援システムを利用することで比較ができ自分にとってよりよい留学プランを選択できます。  
 また、留学企業様も留学支援システムに記事を投稿するだけで顧客獲得がスムーズになります。
 
-![スクリーンショット 2021-01-14 230517](https://user-images.githubusercontent.com/68760801/104601108-2edd6100-56bd-11eb-9d59-6946a2d66485.png)
+https://gyazo.com/32e2bf54053d886951b23d0fc52b9ed6
 ![スクリーンショット 2021-01-14 230533](https://user-images.githubusercontent.com/68760801/104601114-313fbb00-56bd-11eb-800b-fd7cdfbd0c18.png)
 
 # Usage
